@@ -132,6 +132,226 @@
     }
 }
 
+
+
+/* ==========================================================
+   WORKBUILT PILOT APPLICATION
+   ========================================================== */
+
+.pilot-application-section {
+    padding: 6.5rem 0;
+    background: #f7f9fc;
+}
+
+.pilot-application-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 5rem;
+    align-items: start;
+}
+
+.pilot-application-intro h2 {
+    margin-top: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.pilot-application-intro p {
+    color: #475569;
+    font-size: 1.05rem;
+    line-height: 1.75;
+}
+
+.pilot-application-lead {
+    color: #0f1e35 !important;
+    font-size: 1.18rem !important;
+    font-weight: 650;
+}
+
+.pilot-application-note {
+    margin-top: 2rem;
+    padding: 1.15rem 1.25rem;
+    background: #ffffff;
+    border-left: 4px solid #0f1e35;
+    border-radius: 6px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.pilot-form-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 16px 45px rgba(15, 30, 53, 0.08);
+}
+
+.form-field {
+    margin-bottom: 1.25rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #0f1e35;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.optional-label {
+    color: #64748b;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0f1e35;
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 145px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: #0f1e35;
+    box-shadow: 0 0 0 3px rgba(15, 30, 53, 0.10);
+}
+
+.pilot-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.pilot-submit-button {
+    width: 100%;
+    border: 0;
+    cursor: pointer;
+    font: inherit;
+}
+
+.pilot-submit-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.pilot-form-reassurance {
+    margin: 0.9rem 0 0;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.pilot-form-status {
+    display: none;
+    margin-top: 1.25rem;
+    padding: 1rem 1.1rem;
+    border-radius: 8px;
+    line-height: 1.55;
+}
+
+.pilot-form-status.success {
+    display: block;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #166534;
+}
+
+.pilot-form-status.error {
+    display: block;
+    background: #fff7ed;
+    border: 1px solid #fed7aa;
+    color: #9a3412;
+}
+
+.form-honeypot {
+    position: absolute !important;
+    left: -10000px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+}
+
+@media (max-width: 850px) {
+
+    .pilot-application-section {
+        padding: 4.75rem 0;
+    }
+
+    .pilot-application-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .pilot-form-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .pilot-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .pilot-form-card {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .pilot-application-intro p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Workbuilt Pilot form final responsive refinements */
+.pilot-form-reassurance {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    white-space: normal;
+    overflow-wrap: break-word;
+    text-align: center;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pilot-form-card {
+    min-width: 0;
+}
+
+.pilot-form-card form {
+    min-width: 0;
+    width: 100%;
+}
+
+@media (max-width: 700px) {
+    .pilot-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .pilot-application-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 </style>
 
 </head>
@@ -154,7 +374,7 @@
             <a href="#who-we-help">Who We Help</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#pilot">Pilot Program</a>
-            <a class="nav-cta" href="#contact">
+            <a class="nav-cta" href="#pilot-application">
                 Apply for the Pilot
             </a>
         </nav>
@@ -191,10 +411,8 @@
 
                     <a
                         class="button button-primary"
-                        href="#contact"
-                    >
-                        Apply for the Workbuilt Pilot
-                    </a>
+                        href="#pilot-application"
+                    >Apply for the Workbuilt Pilot</a>
 
                     <a
                         class="button button-secondary"
@@ -390,10 +608,8 @@
 
                 <a
                     class="button button-primary"
-                    href="#contact"
-                >
-                    Apply for the Workbuilt Pilot
-                </a>
+                    href="#pilot-application"
+                >Apply for the Workbuilt Pilot</a>
 
             </div>
 
@@ -539,7 +755,173 @@
     </section>
 
 
-    <section
+    
+<section id="pilot-application" class="pilot-application-section">
+    <div class="container">
+        <div class="pilot-application-grid">
+
+            <div class="pilot-application-intro">
+                <div class="eyebrow">
+                    WORKBUILT PILOT APPLICATION
+                </div>
+
+                <h2>
+                    Start with one real business problem.
+                </h2>
+
+                <p class="pilot-application-lead">
+                    Tell us what's taking too much time, getting repeated over
+                    and over, or occasionally falling through the cracks.
+                </p>
+
+                <p>
+                    You don't need to know the solution. The first step is
+                    simply understanding what's happening today and whether
+                    there's a practical opportunity to improve it.
+                </p>
+
+                <div class="pilot-application-note">
+                    <strong>No sales pitch.</strong>
+                    We'll start by learning about the problem.
+                </div>
+            </div>
+
+            <div class="pilot-form-card">
+
+                <form
+                    id="workbuilt-pilot-form"
+                    action="https://formspree.io/f/mppzkrew"
+                    method="POST"
+                >
+
+                    <input
+                        type="hidden"
+                        name="_subject"
+                        value="New Workbuilt Pilot Application"
+                    >
+
+                    <input
+                        type="hidden"
+                        name="source"
+                        value="getworkbuilt.com Workbuilt Pilot"
+                    >
+
+                    <div class="form-field">
+                        <label for="pilot-name">
+                            Your name <span aria-hidden="true">*</span>
+                        </label>
+
+                        <input
+                            id="pilot-name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="pilot-business">
+                            Business name <span aria-hidden="true">*</span>
+                        </label>
+
+                        <input
+                            id="pilot-business"
+                            name="business"
+                            type="text"
+                            autocomplete="organization"
+                            required
+                        >
+                    </div>
+
+                    <div class="pilot-contact-grid">
+
+                        <div class="form-field">
+                            <label for="pilot-phone">
+                                Phone number <span aria-hidden="true">*</span>
+                            </label>
+
+                            <input
+                                id="pilot-phone"
+                                name="phone"
+                                type="tel"
+                                autocomplete="tel"
+                                required
+                            >
+                        </div>
+
+                        <div class="form-field">
+                            <label for="pilot-email">
+                                Email
+                                <span class="optional-label">(optional)</span>
+                            </label>
+
+                            <input
+                                id="pilot-email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="form-field">
+                        <label for="pilot-problem">
+                            What's taking too much time or falling through
+                            the cracks in your business?
+                            <span aria-hidden="true">*</span>
+                        </label>
+
+                        <textarea
+                            id="pilot-problem"
+                            name="business_problem"
+                            rows="6"
+                            required
+                            placeholder="For example: customer follow-up, scheduling, repetitive data entry, manual paperwork, missed handoffs..."
+                        ></textarea>
+                    </div>
+
+                    <div class="form-honeypot" aria-hidden="true">
+                        <label>
+                            Leave this field empty
+                            <input
+                                type="text"
+                                name="_gotcha"
+                                tabindex="-1"
+                                autocomplete="off"
+                            >
+                        </label>
+                    </div>
+
+                    <button
+                        id="pilot-submit"
+                        class="button button-primary pilot-submit-button"
+                        type="submit"
+                    >
+                        Apply for the Pilot
+                    </button>
+
+                    <p class="pilot-form-reassurance">
+                        No sales pitch. Start with one real business problem.
+                    </p>
+
+                    <div
+                        id="pilot-form-status"
+                        class="pilot-form-status"
+                        role="status"
+                        aria-live="polite"
+                    ></div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section
         class="section contact-section"
         id="contact"
     >
@@ -568,10 +950,8 @@
 
             <a
                 class="button button-primary button-large"
-                href="mailto:contact@getworkbuilt.com?subject=Workbuilt%20Local%20Business%20Pilot"
-            >
-                Apply for the Workbuilt Pilot
-            </a>
+                href="#pilot-application"
+            >Apply for the Workbuilt Pilot</a>
 
             <small class="contact-note">
                 No sales pitch. Start with one real business problem.<br>
@@ -602,6 +982,70 @@
     </div>
 
 </footer>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("workbuilt-pilot-form");
+    const status = document.getElementById("pilot-form-status");
+    const submitButton = document.getElementById("pilot-submit");
+
+    if (!form || !status || !submitButton) {
+        return;
+    }
+
+    form.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        status.className = "pilot-form-status";
+        status.textContent = "";
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+        try {
+
+            const response = await fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
+
+            if (response.ok) {
+
+                form.reset();
+
+                status.className = "pilot-form-status success";
+                status.innerHTML =
+                    "<strong>Thanks — we'll take a look.</strong><br>" +
+                    "We'll review what you shared and reach out to learn " +
+                    "a little more about how the process works today.";
+
+                submitButton.textContent = "Application Sent";
+            }
+            else {
+
+                throw new Error("Submission failed");
+            }
+
+        }
+        catch (error) {
+
+            status.className = "pilot-form-status error";
+            status.innerHTML =
+                "<strong>We couldn't send your application.</strong><br>" +
+                "Please try again in a moment.";
+
+            submitButton.disabled = false;
+            submitButton.textContent = "Apply for the Pilot";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
