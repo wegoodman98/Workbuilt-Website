@@ -542,6 +542,7 @@ a {
         align-items: flex-start;
     }
 }
+<<<<<<< HEAD
 /* ==========================================================
    WORKBUILT 2026 CONVERSION UPDATE
    ========================================================== */
@@ -844,4 +845,36 @@ summary {
 @media (max-width: 768px) {
     body { padding-bottom: 78px; }
     .hero-grid { min-height: auto; }
+=======
+
+/* WORKBUILT ACQUISITION RELEASE 1B */
+.wb-assistant-section { padding: 90px 0; }
+.wb-assistant-card { max-width: 900px; margin: 0 auto; padding: 42px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
+.wb-assistant-lead { max-width: 720px; margin-bottom: 30px; color: var(--muted); }
+.wb-assistant-step { display: none; }
+.wb-assistant-step.is-active { display: block; }
+.wb-assistant-question { margin-bottom: 14px; font-size: 1.15rem; font-weight: 700; }
+.wb-assistant-step textarea, .wb-assistant-step input { width: 100%; }
+.wb-assistant-step textarea { min-height: 130px; margin-bottom: 18px; }
+.wb-assistant-actions { display: flex; gap: 12px; margin-top: 18px; }
+@media (max-width: 620px) {
+  .wb-assistant-card { padding: 26px 20px; }
+  .wb-assistant-actions { flex-direction: column; }
+}
+
+
+/* WORKBUILT ACQUISITION RELEASE 1D */
+.wb-phone-section { padding: 36px 0 80px; }
+.wb-phone-card { display:flex; align-items:center; justify-content:space-between; gap:36px; padding:34px 38px; border:1px solid var(--border); border-radius:18px; background:var(--surface); }
+.wb-phone-card h2 { margin-bottom:10px; }
+.wb-phone-card p { max-width:680px; margin-bottom:12px; color:var(--muted); }
+.wb-phone-number { display:inline-block; font-size:1.25rem; font-weight:700; text-decoration:none; }
+.wb-phone-actions { display:flex; flex-wrap:wrap; gap:12px; flex-shrink:0; }
+.wb-footer-contact { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; padding:18px 20px; text-align:center; }
+.wb-footer-contact a { text-decoration:none; }
+@media (max-width:760px) {
+  .wb-phone-card { flex-direction:column; align-items:flex-start; padding:28px 22px; }
+  .wb-phone-actions { width:100%; }
+  .wb-phone-actions .button { flex:1 1 180px; text-align:center; }
+>>>>>>> 37ab4f8 (Complete Workbuilt acquisition foundation)
 }

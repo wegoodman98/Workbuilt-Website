@@ -759,6 +759,87 @@
     </div>
 </section>
 
+<<<<<<< HEAD
+=======
+    
+
+<section id="workbuilt-problem-assistant" class="wb-assistant-section">
+  <div class="container">
+    <div class="wb-assistant-card">
+      <div class="eyebrow">WORKBUILT BUSINESS PROBLEM ASSISTANT</div>
+      <h2>Talk through one problem before you apply.</h2>
+      <p class="wb-assistant-lead">You do not need to know the solution. Answer four practical questions about what is happening today.</p>
+      <form id="wb-assistant-form" action="https://formspree.io/f/mppzkrew" method="POST">
+        <input type="hidden" name="_subject" value="New Workbuilt Website Problem Conversation">
+        <input type="hidden" name="source" value="WEBSITE CHAT">
+        <input type="hidden" name="utm_source" id="wba-utm-source">
+        <input type="hidden" name="utm_medium" id="wba-utm-medium">
+        <input type="hidden" name="utm_campaign" id="wba-utm-campaign">
+        <input type="hidden" name="utm_content" id="wba-utm-content">
+        <input type="hidden" name="utm_term" id="wba-utm-term">
+        <input type="hidden" name="landing_page" id="wba-landing-page">
+        <input type="hidden" name="referrer" id="wba-referrer">
+
+        <div class="wb-assistant-step is-active" data-step="1">
+          <div class="wb-assistant-question">What is the main thing costing you time, customers, or money?</div>
+          <textarea name="business_problem" rows="5" required placeholder="Example: Customer follow-up is inconsistent and some estimates never get followed up."></textarea>
+          <button type="button" class="button button-primary" data-wb-next>Next</button>
+        </div>
+
+        <div class="wb-assistant-step" data-step="2">
+          <div class="wb-assistant-question">How does the process work today?</div>
+          <textarea name="current_process" rows="5" required placeholder="Who does it, what tools are used, and where are the handoffs?"></textarea>
+          <div class="wb-assistant-actions"><button type="button" class="button button-secondary" data-wb-back>Back</button><button type="button" class="button button-primary" data-wb-next>Next</button></div>
+        </div>
+
+        <div class="wb-assistant-step" data-step="3">
+          <div class="wb-assistant-question">How often does it happen, and what happens when it goes wrong?</div>
+          <textarea name="frequency_and_impact" rows="5" required placeholder="Example: 10-15 times a week; staff loses time and we may lose customers."></textarea>
+          <div class="wb-assistant-actions"><button type="button" class="button button-secondary" data-wb-back>Back</button><button type="button" class="button button-primary" data-wb-next>Next</button></div>
+        </div>
+
+        <div class="wb-assistant-step" data-step="4">
+          <div class="wb-assistant-question">What would a better result look like?</div>
+          <textarea name="desired_outcome" rows="4" required placeholder="Example: Every estimate gets followed up within one business day."></textarea>
+          <div class="wb-assistant-actions"><button type="button" class="button button-secondary" data-wb-back>Back</button><button type="button" class="button button-primary" data-wb-next>Next</button></div>
+        </div>
+
+        <div class="wb-assistant-step" data-step="5">
+          <div class="wb-assistant-question">Where should Will follow up?</div>
+          <div class="pilot-contact-grid">
+            <div class="form-field"><label for="wba-name">Your name *</label><input id="wba-name" name="name" type="text" autocomplete="name" required></div>
+            <div class="form-field"><label for="wba-business">Business name *</label><input id="wba-business" name="business" type="text" autocomplete="organization" required></div>
+            <div class="form-field"><label for="wba-phone">Phone *</label><input id="wba-phone" name="phone" type="tel" autocomplete="tel" required></div>
+            <div class="form-field"><label for="wba-email">Email (optional)</label><input id="wba-email" name="email" type="email" autocomplete="email"></div>
+          </div>
+          <div class="form-honeypot" aria-hidden="true"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+          <div class="wb-assistant-actions"><button type="button" class="button button-secondary" data-wb-back>Back</button><button id="wb-assistant-submit" type="submit" class="button button-primary">Send My Problem</button></div>
+        </div>
+        <div id="wb-assistant-status" class="pilot-form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<section class="wb-phone-section" data-workbuilt-phone="true">
+  <div class="container">
+    <div class="wb-phone-card">
+      <div>
+        <div class="eyebrow">PREFER TO TALK?</div>
+        <h2>Call or text Workbuilt.</h2>
+        <p>Have one business problem that is wasting time, losing customers, or costing money? Start with the problem. You do not need to know the solution.</p>
+        <a class="wb-phone-number" href="tel:+14234351896" data-contact-method="PHONE">(423) 435-1896</a>
+      </div>
+      <div class="wb-phone-actions">
+        <a class="button button-primary" href="tel:+14234351896" data-contact-method="PHONE">Call Workbuilt</a>
+        <a class="button button-secondary" href="sms:+14234351896" data-contact-method="SMS">Text Workbuilt</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+>>>>>>> 37ab4f8 (Complete Workbuilt acquisition foundation)
 <section id="pilot-application" class="pilot-application-section">
     <div class="container">
         <div class="pilot-application-grid">
@@ -808,6 +889,13 @@
                         name="source"
                         value="getworkbuilt.com Workbuilt Pilot"
                     >
+                    <input type="hidden" name="utm_source" id="wb-utm-source">
+                    <input type="hidden" name="utm_medium" id="wb-utm-medium">
+                    <input type="hidden" name="utm_campaign" id="wb-utm-campaign">
+                    <input type="hidden" name="utm_content" id="wb-utm-content">
+                    <input type="hidden" name="utm_term" id="wb-utm-term">
+                    <input type="hidden" name="landing_page" id="wb-landing-page">
+                    <input type="hidden" name="referrer" id="wb-referrer">
 
                     <div class="form-field">
                         <label for="pilot-name">
@@ -1004,11 +1092,94 @@
 
     </div>
 
+
+  <div class="wb-footer-contact">
+    <strong>Workbuilt</strong>
+    <span><a href="tel:+14234351896" data-contact-method="PHONE">(423) 435-1896</a> | <a href="sms:+14234351896" data-contact-method="SMS">Text Workbuilt</a></span>
+  </div>
 </footer>
 
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll("[data-contact-method]").forEach(function (link) {
+        link.addEventListener("click", function () {
+            try {
+                const method = link.getAttribute("data-contact-method") || "UNKNOWN";
+                sessionStorage.setItem("wb_last_contact_method", method);
+                sessionStorage.setItem("wb_last_contact_click_at", new Date().toISOString());
+            } catch (error) {
+                // Contact link remains usable if browser storage is unavailable.
+            }
+        });
+    });
+
+
+    const params = new URLSearchParams(window.location.search);
+    const attributionKeys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
+    attributionKeys.forEach(function(key) {
+        const incoming = params.get(key);
+        if (incoming && !sessionStorage.getItem("wb_" + key)) sessionStorage.setItem("wb_" + key, incoming);
+    });
+    if (!sessionStorage.getItem("wb_landing_page")) sessionStorage.setItem("wb_landing_page", window.location.href);
+    if (!sessionStorage.getItem("wb_referrer")) sessionStorage.setItem("wb_referrer", document.referrer || "DIRECT");
+
+    function populateAttribution(prefix) {
+        attributionKeys.forEach(function(key) {
+            const el = document.getElementById(prefix + key.replaceAll("_","-"));
+            if (el) el.value = sessionStorage.getItem("wb_" + key) || "";
+        });
+        const landing = document.getElementById(prefix + "landing-page");
+        const referrer = document.getElementById(prefix + "referrer");
+        if (landing) landing.value = sessionStorage.getItem("wb_landing_page") || window.location.href;
+        if (referrer) referrer.value = sessionStorage.getItem("wb_referrer") || "DIRECT";
+    }
+    populateAttribution("wb-");
+    populateAttribution("wba-");
+
+    const assistantForm = document.getElementById("wb-assistant-form");
+    const assistantStatus = document.getElementById("wb-assistant-status");
+    const assistantSubmit = document.getElementById("wb-assistant-submit");
+    if (assistantForm && assistantStatus && assistantSubmit) {
+        const steps = Array.from(assistantForm.querySelectorAll(".wb-assistant-step"));
+        let currentStep = 0;
+        function showStep(i) {
+            steps.forEach(function(step, n) { step.classList.toggle("is-active", n === i); });
+            currentStep = i;
+        }
+        function valid() {
+            for (const field of steps[currentStep].querySelectorAll("[required]")) {
+                if (!field.checkValidity()) { field.reportValidity(); return false; }
+            }
+            return true;
+        }
+        assistantForm.querySelectorAll("[data-wb-next]").forEach(function(btn) {
+            btn.addEventListener("click", function() { if (valid() && currentStep < steps.length - 1) showStep(currentStep + 1); });
+        });
+        assistantForm.querySelectorAll("[data-wb-back]").forEach(function(btn) {
+            btn.addEventListener("click", function() { if (currentStep > 0) showStep(currentStep - 1); });
+        });
+        assistantForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            if (!valid()) return;
+            assistantSubmit.disabled = true;
+            assistantSubmit.textContent = "Sending...";
+            try {
+                const response = await fetch(assistantForm.action, {method: assistantForm.method, body: new FormData(assistantForm), headers: {"Accept":"application/json"}});
+                if (!response.ok) throw new Error("Submission failed");
+                assistantForm.reset(); showStep(0); populateAttribution("wba-");
+                assistantStatus.className = "pilot-form-status success";
+                assistantStatus.innerHTML = "<strong>Thanks — Will has your starting point.</strong><br>We'll review the problem and follow up to understand how the process works today.";
+                assistantSubmit.textContent = "Problem Sent";
+            } catch (error) {
+                assistantStatus.className = "pilot-form-status error";
+                assistantStatus.innerHTML = "<strong>We couldn't send this right now.</strong><br>Please try again in a moment.";
+                assistantSubmit.disabled = false;
+                assistantSubmit.textContent = "Send My Problem";
+            }
+        });
+    }
 
     const form = document.getElementById("workbuilt-pilot-form");
     const status = document.getElementById("pilot-form-status");
@@ -1041,6 +1212,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
 
                 form.reset();
+                populateAttribution("wb-");
 
                 status.className = "pilot-form-status success";
                 status.innerHTML =
