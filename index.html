@@ -38,7 +38,7 @@
 
     <meta
         property="og:url"
-        content="https://getworkbuilt.com"
+        content="https://getworkbuilt.com/"
     >
 
     <meta property="og:site_name" content="WORKBUILT">
@@ -49,7 +49,7 @@
 
     <link
         rel="canonical"
-        href="https://getworkbuilt.com"
+        href="https://getworkbuilt.com/"
     >
 
     <link
@@ -362,22 +362,7 @@
 
 
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Workbuilt",
-  "url": "https://getworkbuilt.com",
-  "email": "contact@getworkbuilt.com",
-  "founder": {
-    "@type": "Person",
-    "name": "Will Goodman"
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Cookeville"},
-    {"@type": "AdministrativeArea", "name": "Upper Cumberland, Tennessee"}
-  ],
-  "description": "Workbuilt helps small businesses identify operational problems, test practical improvements, and measure the result."
-}
+{"@context":"https://schema.org","@type":["ProfessionalService","Organization"],"@id":"https://getworkbuilt.com/#organization","name":"Workbuilt","url":"https://getworkbuilt.com/","email":"contact@getworkbuilt.com","telephone":"+1-423-435-1896","founder":{"@type":"Person","name":"Will Goodman"},"areaServed":[{"@type":"City","name":"Cookeville","addressRegion":"TN"},{"@type":"AdministrativeArea","name":"Upper Cumberland, Tennessee"}],"description":"Workbuilt helps small businesses identify operational problems, test practical improvements, and measure the result."}
 </script>
 
 <script type="application/ld+json">
@@ -1169,11 +1154,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const params = new URLSearchParams(window.location.search);
+    /* WORKBUILT RELEASE 2A REFERRAL CLASSIFIER */
+    function wbClassifyReferral(referrer){const r=(referrer||"").toLowerCase();if(!r)return {source:"direct",medium:"none"};if(r.includes("chatgpt.com"))return {source:"chatgpt",medium:"ai_referral"};if(r.includes("perplexity.ai"))return {source:"perplexity",medium:"ai_referral"};if(r.includes("claude.ai"))return {source:"claude",medium:"ai_referral"};if(r.includes("grok.com")||r.includes("x.com"))return {source:"grok_x",medium:"ai_referral"};if(r.includes("google."))return {source:"google",medium:"organic"};if(r.includes("bing.com"))return {source:"bing",medium:"organic"};return {source:"referral",medium:"referral"};}
+    /* WORKBUILT RELEASE 2A REFERRAL CLASSIFIER END */
+
     const attributionKeys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
     attributionKeys.forEach(function(key) {
         const incoming = params.get(key);
         if (incoming && !sessionStorage.getItem("wb_" + key)) sessionStorage.setItem("wb_" + key, incoming);
     });
+    const wbReferral=wbClassifyReferral(document.referrer);
+    if(!sessionStorage.getItem("wb_utm_source")&&!params.get("utm_source")) sessionStorage.setItem("wb_utm_source",wbReferral.source);
+    if(!sessionStorage.getItem("wb_utm_medium")&&!params.get("utm_medium")) sessionStorage.setItem("wb_utm_medium",wbReferral.medium);
     if (!sessionStorage.getItem("wb_landing_page")) sessionStorage.setItem("wb_landing_page", window.location.href);
     if (!sessionStorage.getItem("wb_referrer")) sessionStorage.setItem("wb_referrer", document.referrer || "DIRECT");
 
