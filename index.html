@@ -1100,6 +1100,61 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
+    /* WORKBUILT ASSISTANT FINAL REPAIR BEGIN */
+    const wbAssistantForm = document.getElementById("wb-assistant-form");
+
+    if (wbAssistantForm) {
+        const wbAssistantSteps = Array.from(wbAssistantForm.querySelectorAll(".wb-assistant-step"));
+        let wbAssistantCurrentStep = 0;
+
+        function wbShowAssistantStep(index) {
+            if (!wbAssistantSteps.length) return;
+            wbAssistantCurrentStep = Math.max(0, Math.min(index, wbAssistantSteps.length - 1));
+
+            wbAssistantSteps.forEach(function (step, i) {
+                const active = i === wbAssistantCurrentStep;
+                step.classList.toggle("is-active", active);
+                step.hidden = !active;
+                step.setAttribute("aria-hidden", active ? "false" : "true");
+            });
+        }
+
+        function wbValidateAssistantStep(step) {
+            const fields = Array.from(step.querySelectorAll("textarea[required], input[required], select[required]"));
+            for (const field of fields) {
+                if (!field.checkValidity()) {
+                    field.reportValidity();
+                    field.focus();
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        wbAssistantForm.addEventListener("click", function (event) {
+            const nextButton = event.target.closest("[data-wb-next]");
+            const backButton = event.target.closest("[data-wb-back]");
+
+            if (nextButton) {
+                event.preventDefault();
+                const current = wbAssistantSteps[wbAssistantCurrentStep];
+                if (wbValidateAssistantStep(current)) {
+                    wbShowAssistantStep(wbAssistantCurrentStep + 1);
+                }
+                return;
+            }
+
+            if (backButton) {
+                event.preventDefault();
+                wbShowAssistantStep(wbAssistantCurrentStep - 1);
+            }
+        });
+
+        wbShowAssistantStep(0);
+    }
+    /* WORKBUILT ASSISTANT FINAL REPAIR END */
+
+
     document.querySelectorAll("[data-contact-method]").forEach(function (link) {
         link.addEventListener("click", function () {
             try {

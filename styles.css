@@ -846,21 +846,25 @@ summary {
     .hero-grid { min-height: auto; }
 }
 
-/* WORKBUILT ACQUISITION RELEASE 1B */
+/* WORKBUILT ACQUISITION RELEASE 1B - REPAIRED */
 .wb-assistant-section { padding: 90px 0; }
 .wb-assistant-card { max-width: 900px; margin: 0 auto; padding: 42px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
 .wb-assistant-lead { max-width: 720px; margin-bottom: 30px; color: var(--muted); }
-.wb-assistant-step { display: none; }
-.wb-assistant-step.is-active { display: block; }
-.wb-assistant-question { margin-bottom: 14px; font-size: 1.15rem; font-weight: 700; }
-.wb-assistant-step textarea, .wb-assistant-step input { width: 100%; }
-.wb-assistant-step textarea { min-height: 130px; margin-bottom: 18px; }
-.wb-assistant-actions { display: flex; gap: 12px; margin-top: 18px; }
-@media (max-width: 620px) {
-  .wb-assistant-card { padding: 26px 20px; }
-  .wb-assistant-actions { flex-direction: column; }
-}
 
+#wb-assistant-form .wb-assistant-step { display: none !important; }
+#wb-assistant-form .wb-assistant-step.is-active { display: block !important; }
+
+.wb-assistant-question { margin-bottom: 14px; font-size: 1.15rem; font-weight: 700; }
+#wb-assistant-form textarea,
+#wb-assistant-form input { width: 100%; box-sizing: border-box; }
+#wb-assistant-form textarea { min-height: 130px; margin-bottom: 18px; padding: 14px 16px; resize: vertical; font: inherit; line-height: 1.5; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
+#wb-assistant-form input { padding: 12px 14px; }
+.wb-assistant-actions { display: flex; gap: 12px; margin-top: 18px; }
+
+@media (max-width: 620px) {
+    .wb-assistant-card { padding: 26px 20px; }
+    .wb-assistant-actions { flex-direction: column; }
+}
 
 /* WORKBUILT ACQUISITION RELEASE 1D */
 .wb-phone-section { padding: 36px 0 80px; }
