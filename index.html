@@ -284,6 +284,21 @@
     color: #9a3412;
 }
 
+.pilot-form-status[hidden] {
+    display: none;
+}
+
+/* Keep the mobile shortcut from squeezing its copy into one-word lines. */
+.mobile-cta .button {
+    width: auto;
+}
+
+#wb-assistant-form .button-secondary {
+    color: #0f1e35;
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
 .form-honeypot {
     position: absolute !important;
     left: -10000px !important;
@@ -370,7 +385,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type":"Question","name":"What does the first pilot cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. If Workbuilt identifies a problem that is a good fit for the pilot, the first small improvement is evaluated and tested at no charge."}},
+    {"@type":"Question","name":"What does the first pilot cost?","acceptedAnswer":{"@type":"Answer","text":"Nothing. If Workbuilt identifies a problem that is a good fit for the pilot, the first small improvement is evaluated and tested at no charge. Larger implementation or continuing support would have a separate scope and price for you to approve."}},
     {"@type":"Question","name":"Do I have to buy software?","acceptedAnswer":{"@type":"Answer","text":"No. Workbuilt starts with the problem. The right answer may be a process change, something you already use, automation, AI, new software, or a combination."}},
     {"@type":"Question","name":"What kind of problem should I bring?","acceptedAnswer":{"@type":"Answer","text":"A recurring problem that wastes staff time, causes missed follow-up, creates delays or mistakes, frustrates customers, or depends too heavily on someone remembering the next step."}},
     {"@type":"Question","name":"What happens after I submit the form?","acceptedAnswer":{"@type":"Answer","text":"Workbuilt starts with a short conversation to understand the problem. If there is a promising opportunity, the current process is documented and both sides decide whether a small pilot makes sense."}}
@@ -622,7 +637,7 @@
                 </div>
                 <div class="pilot-intro-copy">
                     <p>You don't need to know whether the answer is automation, AI, software, or simply a better process. Start by showing us what isn't working the way you want it to.</p>
-                    <p><strong>If it's a good pilot candidate, we'll test the first improvement at no charge.</strong></p>
+                    <p><strong>If it's a good pilot candidate, we'll test the first small improvement at no charge.</strong> Larger implementation or continuing support would have a separate scope and price for you to approve.</p>
                 </div>
             </div>
 
@@ -735,7 +750,7 @@
             <p>The first conversation is about understanding the problem, not selling you a package.</p>
         </div>
         <div class="faq-list">
-            <details open><summary>What does the first pilot cost?</summary><p>Nothing. If we identify a problem that's a good fit for the Workbuilt pilot, the first small improvement is evaluated and tested at no charge.</p></details>
+            <details open><summary>What does the first pilot cost?</summary><p>Nothing. If we identify a problem that's a good fit for the Workbuilt pilot, the first small improvement is evaluated and tested at no charge. Larger implementation or continuing support would have a separate scope and price for you to approve.</p></details>
             <details><summary>Do I have to buy software?</summary><p>No. Workbuilt starts with the problem. The right answer may be a process change, something you already use, automation, AI, new software, or a combination.</p></details>
             <details><summary>What kind of problem should I bring?</summary><p>Anything that repeatedly wastes staff time, causes missed follow-up, creates delays or mistakes, frustrates customers, or depends too heavily on someone remembering to do the next step.</p></details>
             <details><summary>What happens after I submit the form?</summary><p>We'll have a short conversation to understand the problem. If there's a promising opportunity, we'll document how it works today and decide together whether a small pilot makes sense.</p></details>
@@ -750,8 +765,8 @@
   <div class="container">
     <div class="wb-assistant-card">
       <div class="eyebrow">WORKBUILT BUSINESS PROBLEM ASSISTANT</div>
-      <h2>Talk through one problem before you apply.</h2>
-      <p class="wb-assistant-lead">You do not need to know the solution. Answer four practical questions about what is happening today.</p>
+      <h2>Prefer guided questions? Start here.</h2>
+      <p class="wb-assistant-lead">You do not need to know the solution. Use these guided questions or the <a href="#pilot-application">short problem form</a>, then submit your preferred option once. Both send your inquiry to Will for review and follow-up.</p>
       <form id="wb-assistant-form" action="https://formspree.io/f/mppzkrew" method="POST">
         <input type="hidden" name="_subject" value="New Workbuilt Website Problem Conversation">
         <input type="hidden" name="source" value="WEBSITE CHAT">
@@ -789,12 +804,14 @@
 
         <div class="wb-assistant-step" data-step="5">
           <div class="wb-assistant-question">Where should Will follow up?</div>
+          <p id="wba-contact-hint">Provide a phone number or email address so Will can follow up. At least one is required.</p>
           <div class="pilot-contact-grid">
             <div class="form-field"><label for="wba-name">Your name *</label><input id="wba-name" name="name" type="text" autocomplete="name" required></div>
             <div class="form-field"><label for="wba-business">Business name *</label><input id="wba-business" name="business" type="text" autocomplete="organization" required></div>
-            <div class="form-field"><label for="wba-phone">Phone *</label><input id="wba-phone" name="phone" type="tel" autocomplete="tel" required></div>
-            <div class="form-field"><label for="wba-email">Email (optional)</label><input id="wba-email" name="email" type="email" autocomplete="email"></div>
+            <div class="form-field"><label for="wba-phone">Phone</label><input id="wba-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="wba-contact-hint wba-contact-error"></div>
+            <div class="form-field"><label for="wba-email">Email</label><input id="wba-email" name="email" type="email" autocomplete="email" aria-describedby="wba-contact-hint wba-contact-error"></div>
           </div>
+          <p id="wba-contact-error" class="pilot-form-status error" role="alert" hidden></p>
           <div class="form-honeypot" aria-hidden="true"><label>Leave this field empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
           <div class="wb-assistant-actions"><button type="button" class="button button-secondary" data-wb-back>Back</button><button id="wb-assistant-submit" type="submit" class="button button-primary">Send My Problem</button></div>
         </div>
@@ -843,7 +860,8 @@
                 <p>
                     You don't need to know how to fix it. Tell us what's happening today
                     and we'll determine whether there's a practical opportunity
-                    to improve it. Takes about 2 minutes.
+                    to improve it. Takes about 2 minutes. Use this short form or the
+                    <a href="#workbuilt-problem-assistant">guided questions</a>; you only need to submit one option.
                 </p>
 
                 <div class="pilot-application-note">
@@ -907,11 +925,12 @@
                         >
                     </div>
 
+                    <p id="pilot-contact-hint">Provide a phone number or email address so we can follow up. At least one is required.</p>
                     <div class="pilot-contact-grid">
 
                         <div class="form-field">
                             <label for="pilot-phone">
-                                Phone number <span aria-hidden="true">*</span>
+                                Phone number
                             </label>
 
                             <input
@@ -919,14 +938,13 @@
                                 name="phone"
                                 type="tel"
                                 autocomplete="tel"
-                                required
+                                aria-describedby="pilot-contact-hint pilot-contact-error"
                             >
                         </div>
 
                         <div class="form-field">
                             <label for="pilot-email">
                                 Email
-                                <span class="optional-label">(optional)</span>
                             </label>
 
                             <input
@@ -934,11 +952,13 @@
                                 name="email"
                                 type="email"
                                 autocomplete="email"
+                                aria-describedby="pilot-contact-hint pilot-contact-error"
                             >
                         </div>
 
                     </div>
 
+                    <p id="pilot-contact-error" class="pilot-form-status error" role="alert" hidden></p>
                     <div class="form-field">
                         <label for="pilot-problem">
                             What's one thing in your business you wish worked better?
@@ -1096,70 +1116,24 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* WORKBUILT ASSISTANT FINAL REPAIR BEGIN */
-    const wbAssistantForm = document.getElementById("wb-assistant-form");
-
-    if (wbAssistantForm) {
-        const wbAssistantSteps = Array.from(wbAssistantForm.querySelectorAll(".wb-assistant-step"));
-        let wbAssistantCurrentStep = 0;
-
-        function wbShowAssistantStep(index) {
-            if (!wbAssistantSteps.length) return;
-            wbAssistantCurrentStep = Math.max(0, Math.min(index, wbAssistantSteps.length - 1));
-
-            wbAssistantSteps.forEach(function (step, i) {
-                const active = i === wbAssistantCurrentStep;
-                step.classList.toggle("is-active", active);
-                step.hidden = !active;
-                step.setAttribute("aria-hidden", active ? "false" : "true");
-            });
-        }
-
-        function wbValidateAssistantStep(step) {
-            const fields = Array.from(step.querySelectorAll("textarea[required], input[required], select[required]"));
-            for (const field of fields) {
-                if (!field.checkValidity()) {
-                    field.reportValidity();
-                    field.focus();
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        wbAssistantForm.addEventListener("click", function (event) {
-            const nextButton = event.target.closest("[data-wb-next]");
-            const backButton = event.target.closest("[data-wb-back]");
-
-            if (nextButton) {
-                event.preventDefault();
-                const current = wbAssistantSteps[wbAssistantCurrentStep];
-                if (wbValidateAssistantStep(current)) {
-                    wbShowAssistantStep(wbAssistantCurrentStep + 1);
-                }
-                return;
-            }
-
-            if (backButton) {
-                event.preventDefault();
-                wbShowAssistantStep(wbAssistantCurrentStep - 1);
-            }
-        });
-
-        wbShowAssistantStep(0);
+    // Attribution is optional. Storage restrictions must not prevent an inquiry.
+    const attributionMemory = new Map();
+    function readSession(key) {
+        try {
+            const value = sessionStorage.getItem(key);
+            if (value !== null) return value;
+        } catch (error) {}
+        return attributionMemory.get(key) || "";
     }
-    /* WORKBUILT ASSISTANT FINAL REPAIR END */
-
-
+    function writeSession(key, value) {
+        attributionMemory.set(key, value);
+        try { sessionStorage.setItem(key, value); } catch (error) {}
+    }
     document.querySelectorAll("[data-contact-method]").forEach(function (link) {
         link.addEventListener("click", function () {
-            try {
-                const method = link.getAttribute("data-contact-method") || "UNKNOWN";
-                sessionStorage.setItem("wb_last_contact_method", method);
-                sessionStorage.setItem("wb_last_contact_click_at", new Date().toISOString());
-            } catch (error) {
-                // Contact link remains usable if browser storage is unavailable.
-            }
+            const method = link.getAttribute("data-contact-method") || "UNKNOWN";
+            writeSession("wb_last_contact_method", method);
+            writeSession("wb_last_contact_click_at", new Date().toISOString());
         });
     });
 
@@ -1172,26 +1146,65 @@ document.addEventListener("DOMContentLoaded", function () {
     const attributionKeys = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"];
     attributionKeys.forEach(function(key) {
         const incoming = params.get(key);
-        if (incoming && !sessionStorage.getItem("wb_" + key)) sessionStorage.setItem("wb_" + key, incoming);
+        if (incoming && !readSession("wb_" + key)) writeSession("wb_" + key, incoming);
     });
     const wbReferral=wbClassifyReferral(document.referrer);
-    if(!sessionStorage.getItem("wb_utm_source")&&!params.get("utm_source")) sessionStorage.setItem("wb_utm_source",wbReferral.source);
-    if(!sessionStorage.getItem("wb_utm_medium")&&!params.get("utm_medium")) sessionStorage.setItem("wb_utm_medium",wbReferral.medium);
-    if (!sessionStorage.getItem("wb_landing_page")) sessionStorage.setItem("wb_landing_page", window.location.href);
-    if (!sessionStorage.getItem("wb_referrer")) sessionStorage.setItem("wb_referrer", document.referrer || "DIRECT");
+    if(!readSession("wb_utm_source")&&!params.get("utm_source")) writeSession("wb_utm_source",wbReferral.source);
+    if(!readSession("wb_utm_medium")&&!params.get("utm_medium")) writeSession("wb_utm_medium",wbReferral.medium);
+    if (!readSession("wb_landing_page")) writeSession("wb_landing_page", window.location.href);
+    if (!readSession("wb_referrer")) writeSession("wb_referrer", document.referrer || "DIRECT");
 
     function populateAttribution(prefix) {
         attributionKeys.forEach(function(key) {
             const el = document.getElementById(prefix + key.replaceAll("_","-"));
-            if (el) el.value = sessionStorage.getItem("wb_" + key) || "";
+            if (el) el.value = readSession("wb_" + key);
         });
         const landing = document.getElementById(prefix + "landing-page");
         const referrer = document.getElementById(prefix + "referrer");
-        if (landing) landing.value = sessionStorage.getItem("wb_landing_page") || window.location.href;
-        if (referrer) referrer.value = sessionStorage.getItem("wb_referrer") || "DIRECT";
+        if (landing) landing.value = readSession("wb_landing_page") || window.location.href;
+        if (referrer) referrer.value = readSession("wb_referrer") || "DIRECT";
     }
     populateAttribution("wb-");
     populateAttribution("wba-");
+
+    function validateFields(container, beforeReport) {
+        for (const field of container.querySelectorAll("input:not([type=hidden]), textarea, select")) {
+            if (!field.checkValidity()) {
+                if (beforeReport) beforeReport();
+                field.reportValidity();
+                field.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function contactCheck(form, phoneId, emailId, errorId) {
+        const phone = form.querySelector("#" + phoneId);
+        const email = form.querySelector("#" + emailId);
+        const error = form.querySelector("#" + errorId);
+        function clearError() {
+            error.hidden = true;
+            error.textContent = "";
+            phone.removeAttribute("aria-invalid");
+            email.removeAttribute("aria-invalid");
+        }
+        phone.addEventListener("input", clearError);
+        email.addEventListener("input", clearError);
+        return {
+            clear: clearError,
+            valid: function () {
+                clearError();
+                if (phone.value.trim() || email.value.trim()) return true;
+                error.textContent = "Enter a phone number or email address so we can follow up.";
+                error.hidden = false;
+                phone.setAttribute("aria-invalid", "true");
+                email.setAttribute("aria-invalid", "true");
+                phone.focus();
+                return false;
+            }
+        };
+    }
 
     const assistantForm = document.getElementById("wb-assistant-form");
     const assistantStatus = document.getElementById("wb-assistant-status");
@@ -1199,37 +1212,50 @@ document.addEventListener("DOMContentLoaded", function () {
     if (assistantForm && assistantStatus && assistantSubmit) {
         const steps = Array.from(assistantForm.querySelectorAll(".wb-assistant-step"));
         let currentStep = 0;
+        let submitting = false;
+        assistantForm.noValidate = true;
+        const contact = contactCheck(assistantForm, "wba-phone", "wba-email", "wba-contact-error");
         function showStep(i) {
-            steps.forEach(function(step, n) { step.classList.toggle("is-active", n === i); });
-            currentStep = i;
-        }
-        function valid() {
-            for (const field of steps[currentStep].querySelectorAll("[required]")) {
-                if (!field.checkValidity()) { field.reportValidity(); return false; }
-            }
-            return true;
+            currentStep = Math.max(0, Math.min(i, steps.length - 1));
+            steps.forEach(function(step, n) {
+                const active = n === currentStep;
+                step.classList.toggle("is-active", active);
+                step.hidden = !active;
+                step.setAttribute("aria-hidden", active ? "false" : "true");
+            });
         }
         assistantForm.querySelectorAll("[data-wb-next]").forEach(function(btn) {
-            btn.addEventListener("click", function() { if (valid() && currentStep < steps.length - 1) showStep(currentStep + 1); });
+            btn.addEventListener("click", function() {
+                if (!submitting && validateFields(steps[currentStep])) showStep(currentStep + 1);
+            });
         });
         assistantForm.querySelectorAll("[data-wb-back]").forEach(function(btn) {
-            btn.addEventListener("click", function() { if (currentStep > 0) showStep(currentStep - 1); });
+            btn.addEventListener("click", function() { if (!submitting) showStep(currentStep - 1); });
         });
+        showStep(0);
         assistantForm.addEventListener("submit", async function(event) {
             event.preventDefault();
-            if (!valid()) return;
+            if (submitting) return;
+            for (let i = 0; i < steps.length; i++) {
+                if (!validateFields(steps[i], function () { showStep(i); })) return;
+            }
+            if (!contact.valid()) { showStep(steps.length - 1); return; }
+            submitting = true;
+            assistantStatus.className = "pilot-form-status";
+            assistantStatus.textContent = "Sending your problem...";
             assistantSubmit.disabled = true;
             assistantSubmit.textContent = "Sending...";
             try {
                 const response = await fetch(assistantForm.action, {method: assistantForm.method, body: new FormData(assistantForm), headers: {"Accept":"application/json"}});
                 if (!response.ok) throw new Error("Submission failed");
-                assistantForm.reset(); showStep(0); populateAttribution("wba-");
+                assistantForm.reset(); contact.clear(); showStep(0); populateAttribution("wba-");
                 assistantStatus.className = "pilot-form-status success";
                 assistantStatus.innerHTML = "<strong>Thanks — Will has your starting point.</strong><br>We'll review the problem and follow up to understand how the process works today.";
-                assistantSubmit.textContent = "Problem Sent";
             } catch (error) {
                 assistantStatus.className = "pilot-form-status error";
-                assistantStatus.innerHTML = "<strong>We couldn't send this right now.</strong><br>Please try again in a moment.";
+                assistantStatus.innerHTML = "<strong>We couldn't send this right now.</strong><br>Your answers are still here. Please try again, or email <a href=\"mailto:contact@getworkbuilt.com\">contact@getworkbuilt.com</a>.";
+            } finally {
+                submitting = false;
                 assistantSubmit.disabled = false;
                 assistantSubmit.textContent = "Send My Problem";
             }
@@ -1244,9 +1270,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    form.noValidate = true;
+    let submitting = false;
+    const contact = contactCheck(form, "pilot-phone", "pilot-email", "pilot-contact-error");
+
     form.addEventListener("submit", async function (event) {
 
         event.preventDefault();
+        if (submitting || !validateFields(form) || !contact.valid()) return;
+        submitting = true;
 
         status.className = "pilot-form-status";
         status.textContent = "";
@@ -1267,6 +1299,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (response.ok) {
 
                 form.reset();
+                contact.clear();
                 populateAttribution("wb-");
 
                 status.className = "pilot-form-status success";
@@ -1275,7 +1308,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     "We'll review what you shared and reach out to learn " +
                     "a little more about how the process works today.";
 
-                submitButton.textContent = "Application Sent";
             }
             else {
 
@@ -1288,9 +1320,12 @@ document.addEventListener("DOMContentLoaded", function () {
             status.className = "pilot-form-status error";
             status.innerHTML =
                 "<strong>We couldn't send your application.</strong><br>" +
-                "Please try again in a moment, or email us at " +
+                "Your answers are still here. Please try again, or email us at " +
                 "<a href=\"mailto:contact@getworkbuilt.com\">contact@getworkbuilt.com</a>.";
 
+        }
+        finally {
+            submitting = false;
             submitButton.disabled = false;
             submitButton.textContent = "Tell Us Your Problem";
         }
